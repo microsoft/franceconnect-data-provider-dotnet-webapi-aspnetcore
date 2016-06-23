@@ -1,9 +1,11 @@
-# Kit de démarrage - Fournisseur de données FranceConnect
+# Kit de démarrage FranceConnect - Fournisseur de données #
 
-Bientôt disponible.
+Ce projet exemple met à disposition un canevas de site/API web en [ASP.NET Core](http://www.dotnetfoundation.org/aspnet-core "ASP.NET Core") qui propose des ressources à un fournisseur de service, et qui utilise FranceConnect pour sécuriser cet échange. 
 
-URL de démonstration : http://franceconnect-data-provider-dotnet-webapi-aspnetcore.azurewebsites.net/
+Très prochainement disponible.
 
-API : 
+Dans l'intervale, ce canevas peut être d'ores et déjà testé à l'adresse suivante : [http://franceconnect-data-provider-dotnet-webapi-aspnetcore.azurewebsites.net/](http://franceconnect-data-provider-dotnet-webapi-aspnetcore.azurewebsites.net/ "Site Web de test du canevas de fournisseur de données")
+
+API web :
 - Scopes : value1, value2
-- Endpoint : http://franceconnect-data-provider-dotnet-webapi-aspnetcore.azurewebsites.net/api/values
+- Endpoint : [http://franceconnect-data-provider-dotnet-webapi-aspnetcore.azurewebsites.net/api/values](http://franceconnect-data-provider-dotnet-webapi-aspnetcore.azurewebsites.net/api/values "Point de terminaison")
