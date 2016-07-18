@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0-rc1-final",
+  "description": "Middleware and filter for FranceConnect data providers",
+  "authors": [ "Microsoft France" ],
+  "tags": [ "FranceConnect", "Middleware", "Filter" ],
+  "copyright": "Microsoft France",
+  "projectUrl": "",
+  "licenseUrl": "",
+  "frameworks": {
+    "net451": { },
+    "dotnet5.4": {
+      "dependencies": {
+        "Microsoft.CSharp": "4.0.1-beta-23516",
+        "System.Collections": "4.0.11-beta-23516",
+        "System.Linq": "4.0.1-beta-23516",
+        "System.Runtime": "4.0.21-beta-23516",
+        "System.Threading": "4.0.11-beta-23516"
+      }
+    }
+  },
+  "dependencies": {
+    "Microsoft.AspNet.WebApi.Client": "5.2.3",
+    "Microsoft.AspNet.Http.Abstractions": "1.0.0-rc1-final",
+    "Newtonsoft.Json": "8.0.3",
+    "System.Net.Http": "4.0.1-beta-23516",
+    "Microsoft.AspNet.Mvc.Abstractions": "6.0.0-rc1-final",
+    "Microsoft.AspNet.Mvc.Formatters.Json": "6.0.0-rc1-final"
+  }
+}
