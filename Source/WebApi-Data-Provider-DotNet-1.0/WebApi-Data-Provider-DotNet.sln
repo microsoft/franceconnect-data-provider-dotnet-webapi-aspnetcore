@@ -1,18 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26114.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{46601F44-37EF-48CE-8D4C-5F45B28224CB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4DAA8932-38C9-440E-A694-613628903971}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FranceConnect.DataProvider", "src\FranceConnect.DataProvider\FranceConnect.DataProvider.csproj", "{87F11C1F-1CA1-44B1-A1C1-6222C633C361}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApi-Data-Provider-DotNet", "src\WebApi-Data-Provider-DotNet\WebApi-Data-Provider-DotNet.xproj", "{03EF5CDC-AF2A-4D24-BE9A-6E5F02D31BB4}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FranceConnect.DataProvider", "src\FranceConnect.DataProvider\FranceConnect.DataProvider.xproj", "{1C149AE2-441E-4EF2-80C9-5DDB265C158D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi-Data-Provider-DotNet", "src\WebApi-Data-Provider-DotNet\WebApi-Data-Provider-DotNet.csproj", "{BC5277BB-B505-4A5D-A90B-67497F727531}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,20 +15,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{03EF5CDC-AF2A-4D24-BE9A-6E5F02D31BB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{03EF5CDC-AF2A-4D24-BE9A-6E5F02D31BB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{03EF5CDC-AF2A-4D24-BE9A-6E5F02D31BB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{03EF5CDC-AF2A-4D24-BE9A-6E5F02D31BB4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C149AE2-441E-4EF2-80C9-5DDB265C158D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C149AE2-441E-4EF2-80C9-5DDB265C158D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C149AE2-441E-4EF2-80C9-5DDB265C158D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C149AE2-441E-4EF2-80C9-5DDB265C158D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87F11C1F-1CA1-44B1-A1C1-6222C633C361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87F11C1F-1CA1-44B1-A1C1-6222C633C361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87F11C1F-1CA1-44B1-A1C1-6222C633C361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87F11C1F-1CA1-44B1-A1C1-6222C633C361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC5277BB-B505-4A5D-A90B-67497F727531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC5277BB-B505-4A5D-A90B-67497F727531}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC5277BB-B505-4A5D-A90B-67497F727531}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC5277BB-B505-4A5D-A90B-67497F727531}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{03EF5CDC-AF2A-4D24-BE9A-6E5F02D31BB4} = {46601F44-37EF-48CE-8D4C-5F45B28224CB}
-		{1C149AE2-441E-4EF2-80C9-5DDB265C158D} = {46601F44-37EF-48CE-8D4C-5F45B28224CB}
+		{87F11C1F-1CA1-44B1-A1C1-6222C633C361} = {46601F44-37EF-48CE-8D4C-5F45B28224CB}
+		{BC5277BB-B505-4A5D-A90B-67497F727531} = {46601F44-37EF-48CE-8D4C-5F45B28224CB}
 	EndGlobalSection
 EndGlobal
