@@ -36,23 +36,18 @@ using FranceConnect.DataProvider.Middleware;
 using WebApi_Data_Provider_DotNet.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.Hosting;
 
 namespace WebApi_Data_Provider_DotNet
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IConfiguration configuration)
         {
-            // Set up configuration sources.
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json")
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
+            Configuration = configuration;
         }
+        public IConfiguration Configuration { get; set; }
 
-        public IConfigurationRoot Configuration { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -61,15 +56,12 @@ namespace WebApi_Data_Provider_DotNet
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             // Add framework services.
-            services.AddMvc();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
@@ -83,16 +75,17 @@ namespace WebApi_Data_Provider_DotNet
             
             app.UseStaticFiles();
 
+            app.UseRouting();
+
             app.UseDataProvider(options =>
             {
                 options.ChecktokenEndpoint = Configuration["FranceConnect:ChecktokenEndpoint"];
             });
 
-            app.UseMvc(routes =>
+
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Account}/{action=Register}/{id?}");
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
