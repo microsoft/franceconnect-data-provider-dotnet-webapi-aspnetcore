@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26114.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{46601F44-37EF-48CE-8D4C-5F45B28224CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FranceConnect.DataProvider", "FranceConnect.DataProvider\FranceConnect.DataProvider.csproj", "{87F11C1F-1CA1-44B1-A1C1-6222C633C361}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FranceConnect.DataProvider", "src\FranceConnect.DataProvider\FranceConnect.DataProvider.csproj", "{87F11C1F-1CA1-44B1-A1C1-6222C633C361}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi-Data-Provider-DotNet", "src\WebApi-Data-Provider-DotNet\WebApi-Data-Provider-DotNet.csproj", "{BC5277BB-B505-4A5D-A90B-67497F727531}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi-Data-Provider-DotNet", "WebApi-Data-Provider-DotNet\WebApi-Data-Provider-DotNet.csproj", "{BC5277BB-B505-4A5D-A90B-67497F727531}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +24,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{87F11C1F-1CA1-44B1-A1C1-6222C633C361} = {46601F44-37EF-48CE-8D4C-5F45B28224CB}
-		{BC5277BB-B505-4A5D-A90B-67497F727531} = {46601F44-37EF-48CE-8D4C-5F45B28224CB}
 	EndGlobalSection
 EndGlobal
