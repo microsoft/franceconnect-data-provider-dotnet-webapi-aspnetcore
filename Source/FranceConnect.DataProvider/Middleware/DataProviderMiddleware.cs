@@ -105,9 +105,12 @@ namespace FranceConnect.DataProvider.Middleware
             else
             {
                 await SendFranceConnectError(context, response.StatusCode, response.Content.ReadAsStringAsync().Result);
+                return;
             }
-
-            await _next(context);
+            if (!context.Response.HasStarted)
+            {
+                await _next(context);
+            }
         }
 
 
