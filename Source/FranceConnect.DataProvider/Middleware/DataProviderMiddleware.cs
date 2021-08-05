@@ -71,7 +71,7 @@ namespace FranceConnect.DataProvider.Middleware
 
             string authorization = context.Request.Headers["Authorization"];
             string token = string.Empty;
-            
+
             if (string.IsNullOrEmpty(authorization))
             {
                 await InvalidAuthorizationHeader(context);
@@ -82,7 +82,7 @@ namespace FranceConnect.DataProvider.Middleware
             {
                 token = authorization.Substring("Bearer ".Length).Trim();
             }
-            
+
             if (string.IsNullOrEmpty(token))
             {
                 await AccessTokenNotFound(context);
