@@ -27,10 +27,10 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Threading.Tasks;
 using System.Net.Http;
-using Newtonsoft.Json;
 using System.Net;
 using FranceConnect.DataProvider.Models;
 using System.Text;
+using System.Text.Json;
 
 namespace FranceConnect.DataProvider.Middleware
 {
@@ -71,7 +71,7 @@ namespace FranceConnect.DataProvider.Middleware
 
             string authorization = context.Request.Headers["Authorization"];
             string token = string.Empty;
-            
+
             if (string.IsNullOrEmpty(authorization))
             {
                 await InvalidAuthorizationHeader(context);
@@ -82,7 +82,7 @@ namespace FranceConnect.DataProvider.Middleware
             {
                 token = authorization.Substring("Bearer ".Length).Trim();
             }
-            
+
             if (string.IsNullOrEmpty(token))
             {
                 await AccessTokenNotFound(context);
@@ -94,20 +94,23 @@ namespace FranceConnect.DataProvider.Middleware
             {
                 token = token
             };
-            var response = await client.PostAsync(Options.ChecktokenEndpoint, new StringContent(JsonConvert.SerializeObject(httpContent), Encoding.UTF8, "application/json"));
+            var response = await client.PostAsync(Options.ChecktokenEndpoint, new StringContent(JsonSerializer.Serialize(httpContent), Encoding.UTF8, "application/json"));
             if (response.IsSuccessStatusCode)
             {
                 var json = response.Content.ReadAsStringAsync().Result;
-                var checktokenResponse = JsonConvert.DeserializeObject<ChecktokenResponse>(json);
+                var checktokenResponse = JsonSerializer.Deserialize<ChecktokenResponse>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                 context.Items["scope"] = checktokenResponse.Scope;
                 context.Items["email"] = checktokenResponse.Identity.Email;
             }
             else
             {
                 await SendFranceConnectError(context, response.StatusCode, response.Content.ReadAsStringAsync().Result);
+                return;
             }
-
-            await _next(context);
+            if (!context.Response.HasStarted)
+            {
+                await _next(context);
+            }
         }
 
 
@@ -136,7 +139,7 @@ namespace FranceConnect.DataProvider.Middleware
         {
             context.Response.StatusCode = (int)statusCode;
             context.Response.ContentType = "application/json";
-            await context.Response.WriteAsync(JsonConvert.SerializeObject(error));
+            await context.Response.WriteAsync(JsonSerializer.Serialize(error));
         }
 
         private static async Task SendFranceConnectError(HttpContext context, HttpStatusCode statusCode, string error)
