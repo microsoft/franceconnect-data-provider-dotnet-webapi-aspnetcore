@@ -98,7 +98,7 @@ namespace FranceConnect.DataProvider.Middleware
             if (response.IsSuccessStatusCode)
             {
                 var json = response.Content.ReadAsStringAsync().Result;
-                var checktokenResponse = JsonSerializer.Deserialize<ChecktokenResponse>(json);
+                var checktokenResponse = JsonSerializer.Deserialize<ChecktokenResponse>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                 context.Items["scope"] = checktokenResponse.Scope;
                 context.Items["email"] = checktokenResponse.Identity.Email;
             }

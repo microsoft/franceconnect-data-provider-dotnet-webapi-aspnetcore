@@ -43,8 +43,8 @@ namespace FranceConnect.DataProvider.Middleware
         public string Family_name { get; set; }
         public DateTimeOffset Birthdate { get; set; }
         public string Gender { get; set; }
-        public int Birthplace { get; set; }
-        public int Birthcountry { get; set; }
+        public string Birthplace { get; set; }
+        public string Birthcountry { get; set; }
         public string Email { get; set; }
     }
 
