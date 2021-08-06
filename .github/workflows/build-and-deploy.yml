@@ -1,5 +1,6 @@
 name: Build and deploy .NET Core app to WebApp franceconnect-data-provider-dotnet-webapi-aspnetcore
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'Source/**'
