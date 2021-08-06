@@ -42,37 +42,54 @@ namespace WebApi_Data_Provider_DotNet
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
+            Env = env;
             Configuration = configuration;
         }
         public IConfiguration Configuration { get; set; }
+        public IWebHostEnvironment Env { get; set; }
 
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            {
+                if (Env.IsProduction())
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                }
+                else
+                {
+                    //Sqlite is suggested for development environments, as the database is thus hosted on the filesystem instead of a server.
+                    options.UseSqlite(Configuration.GetConnectionString("SqliteConnection"));
+                }
+            });
 
             // Add framework services.
             services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, ApplicationDbContext dbContext)
         {
-            if (env.IsDevelopment())
+            if (Env.IsProduction())
+            {
+                app.UseExceptionHandler("/Account/Error");
+                app.UseHsts();
+                app.UseHttpsRedirection();
+            }
+            else
             {
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+
+                // Apply any pending database migrations on startup (includes initial db creation)
+                dbContext.Database.Migrate();
+                // This is not recommended for production databases. See https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying#apply-migrations-at-runtime
             }
-            else
-            {
-                app.UseExceptionHandler("/Account/Error");
-            }
-            
             app.UseStaticFiles();
 
             app.UseRouting();
