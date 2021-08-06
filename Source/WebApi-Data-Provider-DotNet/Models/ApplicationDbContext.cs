@@ -48,6 +48,12 @@ namespace WebApi_Data_Provider_DotNet.Models
                 b.Property(u => u.Email).HasMaxLength(256);
                 b.Property(u => u.Email).IsRequired();
             });
+
+            //Sample test data can be added here :
+
+            modelBuilder.Entity<ApplicationUser>().HasData(
+                new ApplicationUser { Email = "wossewodda-3728@yopmail.com", ValueOne = "Valeur test 1", ValueTwo = "Seconde valeur test" });
+
         }
     }
 }
