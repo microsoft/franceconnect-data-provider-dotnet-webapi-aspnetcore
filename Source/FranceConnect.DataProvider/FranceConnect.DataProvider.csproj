@@ -4,7 +4,7 @@
     <Description>Middleware and filter for FranceConnect data providers</Description>
     <Copyright>Microsoft France</Copyright>
     <Authors>Microsoft France</Authors>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>FranceConnect.DataProvider</AssemblyName>
     <PackageId>FranceConnect.DataProvider</PackageId>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>

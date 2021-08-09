@@ -44,6 +44,7 @@ namespace WebApi_Data_Provider_DotNet
                     options.UseInMemoryDatabase("InMemory");
                 }
             });
+            services.AddDatabaseDeveloperPageExceptionFilter();
 
             // Add framework services.
             services.AddControllersWithViews();
@@ -62,7 +63,7 @@ namespace WebApi_Data_Provider_DotNet
             {
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                app.UseMigrationsEndPoint();
             }
             app.UseStaticFiles();
 
