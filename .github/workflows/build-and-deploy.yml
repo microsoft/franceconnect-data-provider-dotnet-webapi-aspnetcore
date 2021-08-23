@@ -14,7 +14,8 @@ env:
   AZURE_WEBAPP_NAME: franceconnect-data-provider-dotnet-webapi-aspnetcore
   AZURE_WEBAPP_PACKAGE_PATH: Source/WebApi-Data-Provider-DotNet/publish
   WORKING_DIRECTORY: Source/WebApi-Data-Provider-DotNet/
-  CONFIGURATION: Development
+  CONFIGURATION: Debug
+  ASPNETCORE_ENVIRONMENT: Development
   DOTNET_CORE_VERSION: 3.1.x
 
 jobs:
@@ -54,8 +55,5 @@ jobs:
         publish-profile: ${{ env.AZURE_WEBAPP_PUBLISH_PROFILE }}
         
     - name: Apply database migrations
-      if: ${{ steps.deploy.conclusion == 'success' && env.CONFIGURATION == 'Production' }}
+      if: ${{ steps.deploy.conclusion == 'success' && env.ASPNETCORE_ENVIRONMENT == 'Production' }}
       run: dotnet ef database update --project "${{ env.WORKING_DIRECTORY }}"
-      working-directory: ${{ env.WORKING_DIRECTORY }}
-      env:
-        ASPNETCORE_ENVIRONMENT: ${{ env.CONFIGURATION }}
