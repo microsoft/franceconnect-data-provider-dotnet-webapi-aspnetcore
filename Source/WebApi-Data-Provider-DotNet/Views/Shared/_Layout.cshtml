@@ -25,7 +25,7 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <div class="navbar-collapse collapse justify-content-between d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Accueil</a>
@@ -43,10 +43,10 @@
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
+    
+    <footer class="border-top footer text-muted mt-auto">
         <div class="container">
-            &copy; 2016-2021 - Microsoft France
+            &copy; 2021 - Microsoft France - <a asp-area="" asp-page="https://privacy.microsoft.com/fr-fr">Protection des données</a> - <a href="https://www.microsoft.com/security">Sécurité</a>
         </div>
     </footer>
 
