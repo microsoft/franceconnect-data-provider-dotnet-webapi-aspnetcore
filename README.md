@@ -1,9 +1,8 @@
 # Kit de démarrage FranceConnect - Fournisseur de données (FD)
 
-Ce projet exemple met à disposition un canevas de site/API web en [ASP.NET Core](https://dotnet.microsoft.com/learn/aspnet/what-is-aspnet-core "ASP.NET Core") qui propose des ressources à un fournisseur de service, et qui utilise FranceConnect pour sécuriser cet échange. 
+Ce projet exemple met à disposition un canevas de site/API web en [ASP.NET Core](https://dotnet.microsoft.com/learn/aspnet/what-is-aspnet-core "ASP.NET Core") qui propose des ressources à un fournisseur de service, et qui utilise FranceConnect pour sécuriser cet échange.
 
-La version utilisée est ASP.NET Core 3.1 (LTS), ainsi que .NET 5.0/6.0 sur la branche concernée
-
+La version utilisée est.NET 6 (LTS)
 Vous pouvez trouver sur ce répertoire **[la documentation associée](/Documentation)**, ainsi que le **[le guide de démarrage rapide](/Source/README.md)** afin d'executer le canevas localement.
 
 Celui-ci peut être testé directement à l'adresse <https://aka.ms/FranceConnect-FD>, à laquelle le code de ce répertoire GitHub est continuellement déployé. 
@@ -12,6 +11,8 @@ Celui-ci peut être testé directement à l'adresse <https://aka.ms/FranceConnec
 
 - Scopes : value1, value2
 - Endpoint : <https://franceconnect-data-provider-dotnet-webapi-aspnetcore.azurewebsites.net/api/values>
+
+Il vous faut authentifier votre requête avec un jeton d'accès FranceConnect, comme indiqué dans la documentation franceconnect correspondante.
 
 L'adresse suivante est fournie pour ajouter des valeurs dans la base de données : <http://franceconnect-data-provider-dotnet-webapi-aspnetcore.azurewebsites.net/Account/Register>
 
