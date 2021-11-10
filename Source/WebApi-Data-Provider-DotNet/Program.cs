@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
+using FranceConnect.DataProvider.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
@@ -58,7 +59,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseDataProvider(options =>
+{
+    options.ChecktokenEndpoint = builder.Configuration["FranceConnect:ChecktokenEndpoint"];
+});
 
 app.UseEndpoints(endpoints =>
 {

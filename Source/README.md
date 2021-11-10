@@ -2,10 +2,10 @@
 
 > **Prérequis système**
 >
-> - Le [SDK .NET Core 3.1](https://dotnet.microsoft.com/download)
+> - Le [SDK .NET 6](https://dotnet.microsoft.com/download)
 > - [Node.JS et NPM](https://nodejs.org/en/download/)
 > - .NET Core étant orienté multi-plateforme, vous pouvez utiliser le système d'exploitation supporté de votre choix.
-> - Un IDE tel que Visual Studio 2019 ou VS Code est recommandé pour le développement, mais ce guide de démarrage rapide indiquera comment lancer l'application depuis l'environnement ligne de commande de son choix.
+> - Un IDE tel que Visual Studio 2022 ou VS Code est recommandé pour le développement, mais ce guide de démarrage rapide indiquera comment lancer l'application depuis l'environnement ligne de commande de son choix.
 
 1. Clonez ce répertoire GitHub, puis rejoignez dans l'environnement ligne de commande de votre choix le dossier du code source `Source\WebApi-Data-Provider-DotNet` (contenant le fichier .csproj).
 2. Exécutez la commande `dotnet restore`, suivie de `dotnet tool restore`, afin de restaurer les dépendances et outils utiles pour ce projet.
