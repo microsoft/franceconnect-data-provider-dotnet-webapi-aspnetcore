@@ -1,3 +1,5 @@
+# **AVERTISSEMMENT : CE PROJET EST CONSIDERE COMME DEPRECIE. IL N'EST PLUS MAINTENU EN L'ETAT.** 
+
 # Kit de démarrage FranceConnect - Fournisseur de données (FD)
 
 Ce projet exemple met à disposition un canevas de site/API web en [ASP.NET Core](https://dotnet.microsoft.com/learn/aspnet/what-is-aspnet-core "ASP.NET Core") qui propose des ressources à un fournisseur de service, et qui utilise FranceConnect pour sécuriser cet échange.
